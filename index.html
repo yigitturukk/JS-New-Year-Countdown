@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="card">
+        <h1>Yeni Yıl'a</h1>
+        <div class="card-body" id="clock">
+          <div id="clock"></div>
+        </div>
+      </div>
+      
+
+    <script>
+    function displayTime(){
+        var nowDate = new Date();
+        var nowTime = nowDate.getTime(); 
+
+        var countdownDate = new Date("Jan 1,2025 00:00:00").getTime();
+        
+        var distanceTime = countdownDate - nowTime;
+
+        var days = Math.floor(distanceTime / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distanceTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distanceTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distanceTime % (1000 * 60)) / 1000);
+        
+        document.getElementById("clock").innerHTML =  + days + "gün " + hours + "saat "+ minutes + "dakika " + seconds + " saniye kaldı ";
+
+    }
+
+    setInterval(displayTime,1000);
+    </script>
+</body>
+</html>
